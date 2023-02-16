@@ -1,5 +1,5 @@
 from django.contrib import admin
-from app.models import User, Account, PlantedTree
+from app.models import User, Account, PlantedTree, Tree
 
 # Register your models here.
 
@@ -17,6 +17,11 @@ class AccountAdmin(admin.ModelAdmin):
 
 @admin.register(PlantedTree)
 class PlantedTreeAdmin(admin.ModelAdmin):
-    list_display = ('planted_at', 'user', 'account', 'tree')
-    search_fields = ['planted_at', 'user', 'account', 'tree']
+    list_display = ('planted_at', 'tree', 'location')
+    search_fields = ['planted_at', 'tree', 'location']
 
+
+@admin.register(Tree)
+class TreeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'scientific_name')
+    search_fields = ['name', 'scientific_name']
